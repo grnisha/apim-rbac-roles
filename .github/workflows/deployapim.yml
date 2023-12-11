@@ -9,10 +9,15 @@ jobs:
       uses: azure/login@v1
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
-  # deploy bicep template
-    - name: Deploy Bicep
+  # deploy bicep template api.bicep (deploy/api/conferenceapi/api.bicep) using latest vesrsion of azure cli 
+    - name: Provision resources
       uses: azure/CLI@v1
       with:
-        azcliversion: 2.0.72
+        azcliversion: latest
         inlineScript: |
-          az deployment sub create --location westeurope --template-file ./bicep/main.bicep --parameters ./bicep/parameters.json
+          az deployment group create \
+          --name funcapp-${{ github.run_number }} \
+          --resource-group "${{ secrets.RESOURCE_GROUP }}" \
+          --template-file "${{ github.workspace }}/deploy/api/conferenceapi/api.bicep" \
+          --parameters serviceName=${{ secrets.SERVICE_NAME }}
+

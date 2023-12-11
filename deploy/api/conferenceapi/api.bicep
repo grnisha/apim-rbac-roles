@@ -1,5 +1,5 @@
 @description('The name of the API Management instance to deploy this API to.')
-param serviceName string = 'apim-demonp-aqa-dev'
+param serviceName string 
 
 resource apimService 'Microsoft.ApiManagement/service@2022-04-01-preview' existing = {
   name: serviceName
