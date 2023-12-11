@@ -1,4 +1,4 @@
-name: APIM Service deployment
+name: Conference API
 on: [workflow_dispatch]
 jobs:
   build:
@@ -9,7 +9,6 @@ jobs:
       uses: azure/login@v1
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
-  # deploy bicep template api.bicep (deploy/api/conferenceapi/api.bicep) using latest vesrsion of azure cli 
     - name: Provision resources
       uses: azure/CLI@v1
       with:
