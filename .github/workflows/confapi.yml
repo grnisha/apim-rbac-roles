@@ -8,7 +8,7 @@ jobs:
     - name: Azure Login
       uses: azure/login@v1
       with:
-        creds: ${{ secrets.AZURE_CREDENTIALS_GHCONFAPI3 }}
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
     - name: Provision resources
       uses: azure/CLI@v1
       with:
