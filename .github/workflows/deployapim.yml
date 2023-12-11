@@ -1,0 +1,18 @@
+name: APIM Service deployment
+on: [workflow_dispatch]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Azure Login
+      uses: azure/login@v1
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
+  # deploy bicep template
+    - name: Deploy Bicep
+      uses: azure/CLI@v1
+      with:
+        azcliversion: 2.0.72
+        inlineScript: |
+          az deployment sub create --location westeurope --template-file ./bicep/main.bicep --parameters ./bicep/parameters.json
