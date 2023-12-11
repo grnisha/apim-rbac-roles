@@ -1,0 +1,22 @@
+name: Conference API
+on: [workflow_dispatch]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Azure Login
+      uses: azure/login@v1
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
+    - name: Provision resources
+      uses: azure/CLI@v1
+      with:
+        azcliversion: latest
+        inlineScript: |
+          az deployment group create \
+          --name funcapp-${{ github.run_number }} \
+          --resource-group "${{ secrets.RESOURCE_GROUP }}" \
+          --template-file "${{ github.workspace }}/deploy/api/demoapi/api.bicep" \
+          --parameters serviceName=${{ secrets.SERVICE_NAME }}
+
