@@ -1,6 +1,9 @@
 <policies>
     <inbound>
         <base />
+        <set-header name="test-header" exists-action="append">
+            <value>123</value>
+        </set-header>
     </inbound>
     <backend>
         <base />
