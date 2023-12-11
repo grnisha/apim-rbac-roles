@@ -1,4 +1,4 @@
-name: Conference API
+name: Demo API
 on: [workflow_dispatch]
 jobs:
   build:
