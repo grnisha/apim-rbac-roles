@@ -66,4 +66,5 @@ Assign Deployment Manager role created in the first step to the service priciple
 ### References
 
 [role-based access control in Azure API Management](https://learn.microsoft.com/en-us/azure/api-management/api-management-role-based-access-control)
+
 [Create or update Azure custom roles](https://learn.microsoft.com/en-us/azure/role-based-access-control/custom-roles-cli)
