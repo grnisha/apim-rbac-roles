@@ -55,7 +55,22 @@ Create service priciple for git hub action , scoped at the api level, with the f
 ```
 az ad sp create-for-rbac --name "<<sp name>>" --role "Conference API Manager" --scopes /subscriptions/<<subid>>/resourceGroups/<<resource-group>>/providers/Microsoft.ApiManagement/service/<<apim-name>>/apis/<<api-name>> --json-auth
 ```
-Copy the details and save it as github secret.
+ The command should output a JSON object similar to this:
+ ```
+      {
+        "clientId": "<GUID>",
+        "clientSecret": "<GUID>",
+        "subscriptionId": "<GUID>",
+        "tenantId": "<GUID>",
+        "activeDirectoryEndpointUrl": "<URL>",
+        "resourceManagerEndpointUrl": "<URL>",
+        "activeDirectoryGraphResourceId": "<URL>",
+        "sqlManagementEndpointUrl": "<URL>",
+        "galleryEndpointUrl": "<URL>",
+        "managementEndpointUrl": "<URL>"
+      }
+   ```
+Store the output JSON as the value of a GitHub Actions secret named 'AZURE_CREDENTIALS'
 
 ## Step 3
 
