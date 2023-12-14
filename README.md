@@ -62,3 +62,8 @@ Copy the details and save it as github secret.
 Assign Deployment Manager role created in the first step to the service priciple and use this service principle to deploy the api.
 
 <img width="386" alt="image" src="https://github.com/grnisha/apim-rbac-roles/assets/11030157/d60244d7-bef7-4c46-853f-8a0b555dfb64">
+
+### References
+
+[role-based access control in Azure API Management](https://learn.microsoft.com/en-us/azure/api-management/api-management-role-based-access-control)
+[Create or update Azure custom roles](https://learn.microsoft.com/en-us/azure/role-based-access-control/custom-roles-cli)
