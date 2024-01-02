@@ -50,7 +50,7 @@ az role definition create --role-definition <<json file>>
 
 ## Step 2
 
-Create service priciple for git hub action , scoped at the api level, with the first custom role created in step 1
+Create service priciple for Github action , scoped at the api level, with the first custom role created in step 1
 
 ```
 az ad sp create-for-rbac --name "<<sp name>>" --role "Conference API Manager" --scopes /subscriptions/<<subid>>/resourceGroups/<<resource-group>>/providers/Microsoft.ApiManagement/service/<<apim-name>>/apis/<<api-name>> --json-auth
