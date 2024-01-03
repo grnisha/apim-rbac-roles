@@ -70,7 +70,7 @@ az ad sp create-for-rbac --name "<<sp name>>" --role "Conference API Manager" --
         "managementEndpointUrl": "<URL>"
       }
    ```
-Store the output JSON as the value of a GitHub Actions secret named 'AZURE_CREDENTIALS'
+Store the output JSON as the value of a GitHub Actions secret. This is the credential used to deploy to Azure.
 
 ## Step 3
 
